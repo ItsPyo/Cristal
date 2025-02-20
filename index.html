@@ -11,6 +11,7 @@
             text-align: center;
             font-family: 'Arial', sans-serif;
             color: white;
+            overflow-x: hidden;
         }
         h1 {
             color: #ffebeb;
@@ -91,6 +92,18 @@
             color: white;
             text-decoration: none;
         }
+        /* Falling Hearts Animation */
+        .heart-fall {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            color: red;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -98,6 +111,14 @@
     <p id="message">You are the best thing that ever happened to me! 💕</p>
     <div class="heart">❤️</div>
     <button onclick="changeMessage()">Click for More Love</button>
+
+    <!-- Hidden Love Letter -->
+    <h2>💌 A Secret Love Letter 💌</h2>
+    <button onclick="showLetter()">Click to Reveal</button>
+    <p id="loveLetter" style="display:none; font-size: 22px; margin-top: 10px;">  
+        My Love, every moment with you is a dream come true. You make my world brighter,  
+        my heart happier, and my soul complete. I love you more than words can ever say! ❤️  
+    </p>
 
     <!-- Photo Gallery Section -->
     <h2>Our Beautiful Memories 📸</h2>
@@ -135,57 +156,32 @@
             "I love you more than words can say 💖",
             "You make every day special 💕",
             "You are my favorite person in the world 🌎",
-            "Forever and always, my love ❤️",
-            "I fall in love with you more and more every day 💞",
-            "Just seeing you smile makes my whole day better 😊",
-            "I’d choose you again and again, in every lifetime 💍",
-            "You are my heart, my soul, my everything 💘",
-            "Being with you is my happiest place 💫",
-            "No matter what happens, I’ll always be here for you 🤗",
-            "Your love makes my world complete 🌍",
-            "You are more beautiful than the stars in the sky ✨",
-            "I’m the luckiest person in the world because I have you 🍀",
-            "Every moment with you is a treasure 💎",
-            "You are the best thing that has ever happened to me 💓",
-            "With you, every day feels like a dream come true 🌙",
-            "I love the way you laugh, it’s music to my ears 🎶",
-            "You are my forever and always ❤️"
+            "Forever and always, my love ❤️"
         ];
 
         function changeMessage() {
             const randomIndex = Math.floor(Math.random() * messages.length);
             document.getElementById("message").innerText = messages[randomIndex];
         }
-    </script>
-<script>
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.innerHTML = "❤️";
-        heart.style.position = "fixed";
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.top = "-50px";
-        heart.style.fontSize = Math.random() * 20 + 20 + "px";
-        heart.style.opacity = Math.random();
-        heart.style.animation = "fall 5s linear";
-        document.body.appendChild(heart);
 
-        setTimeout(() => {
-            heart.remove();
-        }, 5000);
-    }
-
-    setInterval(createHeart, 500);
-
-    // CSS for falling animation
-    const style = document.createElement("style");
-    style.innerHTML = `
-        @keyframes fall {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(100vh); }
+        function showLetter() {
+            document.getElementById("loveLetter").style.display = "block";
         }
-    `;
-    document.head.appendChild(style);
-</script>
 
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart-fall");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>
