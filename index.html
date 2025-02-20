@@ -157,5 +157,35 @@
             document.getElementById("message").innerText = messages[randomIndex];
         }
     </script>
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "-50px";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.opacity = Math.random();
+        heart.style.animation = "fall 5s linear";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+
+    // CSS for falling animation
+    const style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
 </body>
 </html>
