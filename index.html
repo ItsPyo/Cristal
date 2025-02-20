@@ -54,4 +54,108 @@
             margin-top: 30px;
         }
         .gallery img {
-            width:
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .overlay img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 15px;
+        }
+        .overlay:target {
+            display: flex;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>For My Love ❤️</h1>
+    <p id="message">You are the best thing that ever happened to me! 💕</p>
+    <div class="heart">❤️</div>
+    <button onclick="changeMessage()">Click for More Love</button>
+
+    <!-- Photo Gallery Section -->
+    <h2>Our Beautiful Memories 📸</h2>
+    <div class="gallery">
+        <a href="#img1"><img src="photo1.jpg" alt="Photo 1"></a>
+        <a href="#img2"><img src="photo2.jpg" alt="Photo 2"></a>
+        <a href="#img3"><img src="photo3.jpg" alt="Photo 3"></a>
+        <a href="#img4"><img src="photo4.jpg" alt="Photo 4"></a>
+    </div>
+
+    <!-- Fullscreen Image Viewer -->
+    <div id="img1" class="overlay">
+        <a href="#" class="close">&times;</a>
+        <img src="photo1.jpg" alt="Photo 1">
+    </div>
+    <div id="img2" class="overlay">
+        <a href="#" class="close">&times;</a>
+        <img src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div id="img3" class="overlay">
+        <a href="#" class="close">&times;</a>
+        <img src="photo3.jpg" alt="Photo 3">
+    </div>
+    <div id="img4" class="overlay">
+        <a href="#" class="close">&times;</a>
+        <img src="photo4.jpg" alt="Photo 4">
+    </div>
+
+    <!-- Music Embed (Autoplay "Just The Way You Are") -->
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/LjhCEhWiKXk?autoplay=1&loop=1&playlist=LjhCEhWiKXk" frameborder="0" allow="autoplay"></iframe>
+
+    <script>
+        const messages = [
+            "You are my sunshine ☀️",
+            "I love you more than words can say 💖",
+            "You make every day special 💕",
+            "You are my favorite person in the world 🌎",
+            "Forever and always, my love ❤️",
+            "I fall in love with you more and more every day 💞",
+            "Just seeing you smile makes my whole day better 😊",
+            "I’d choose you again and again, in every lifetime 💍",
+            "You are my heart, my soul, my everything 💘",
+            "Being with you is my happiest place 💫",
+            "No matter what happens, I’ll always be here for you 🤗",
+            "Your love makes my world complete 🌍",
+            "You are more beautiful than the stars in the sky ✨",
+            "I’m the luckiest person in the world because I have you 🍀",
+            "Every moment with you is a treasure 💎",
+            "You are the best thing that has ever happened to me 💓",
+            "With you, every day feels like a dream come true 🌙",
+            "I love the way you laugh, it’s music to my ears 🎶",
+            "You are my forever and always ❤️"
+        ];
+
+        function changeMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById("message").innerText = messages[randomIndex];
+        }
+    </script>
+</body>
+</html>
