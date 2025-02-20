@@ -92,18 +92,6 @@
             color: white;
             text-decoration: none;
         }
-        /* Falling Hearts Animation */
-        .heart-fall {
-            position: fixed;
-            top: -50px;
-            font-size: 24px;
-            color: red;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
     </style>
 </head>
 <body>
@@ -147,8 +135,9 @@
         <img src="photo4.jpg" alt="Photo 4">
     </div>
 
-    <!-- Music Embed (Autoplay "Just The Way You Are") -->
-    <iframe width="0" height="0" src="https://youtu.be/u7XjPmN-tHw?si=2aDCQD5Zm-yKgIQW" frameborder="0" allow="autoplay"></iframe>
+    <!-- Music Embed (Autoplay New Song) -->
+<iframe width="0" height="0" src="https://www.youtube.com/embed/u7XjPmN-tHw?autoplay=1&loop=1&playlist=u7XjPmN-tHw" frameborder="0" allow="autoplay"></iframe>
+
 
     <script>
         const messages = [
@@ -156,7 +145,21 @@
             "I love you more than words can say 💖",
             "You make every day special 💕",
             "You are my favorite person in the world 🌎",
-            "Forever and always, my love ❤️"
+            "Forever and always, my love ❤️",
+            "I fall in love with you more and more every day 💞",
+            "Just seeing you smile makes my whole day better 😊",
+            "I’d choose you again and again, in every lifetime 💍",
+            "You are my heart, my soul, my everything 💘",
+            "Being with you is my happiest place 💫",
+            "No matter what happens, I’ll always be here for you 🤗",
+            "Your love makes my world complete 🌍",
+            "You are more beautiful than the stars in the sky ✨",
+            "I’m the luckiest person in the world because I have you 🍀",
+            "Every moment with you is a treasure 💎",
+            "You are the best thing that has ever happened to me 💓",
+            "With you, every day feels like a dream come true 🌙",
+            "I love the way you laugh, it’s music to my ears 🎶",
+            "You are my forever and always ❤️"
         ];
 
         function changeMessage() {
@@ -167,21 +170,6 @@
         function showLetter() {
             document.getElementById("loveLetter").style.display = "block";
         }
-
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart-fall");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
