@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: #ff4d4d;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 22px;
+            color: #800000;
+        }
+        .heart {
+            font-size: 100px;
+            color: red;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>For My Love ❤️</h1>
+    <p id="message">You are the best thing that ever happened to me! 💕</p>
+    <div class="heart">❤️</div>
+    <button onclick="changeMessage()">Click for More Love</button>
+
+    <script>
+        const messages = [
+            "You are my sunshine ☀️",
+            "I love you more than words can say 💖",
+            "You make every day special 💕",
+            "You are my favorite person in the world 🌎",
+            "Forever and always, my love ❤️"
+        ];
+
+        function changeMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById("message").innerText = messages[randomIndex];
+        }
+    </script>
+</body>
+</html>
